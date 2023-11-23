@@ -30,10 +30,10 @@ jobs:
         uses: golangci/golangci-lint-action@v3
         with:
           version: latest
-          working-directory: ./homework
+          working-directory: ./
 
       - name: Test
-        working-directory: ./homework
+        working-directory: ./
         run: |
           go mod tidy
           go test -v -race -coverpkg=./... ./...
