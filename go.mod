@@ -1,4 +1,4 @@
-module github.com/boldyrevn/hw_server_config
+module github.com/boldyrevn/servconf
 
 go 1.21.0
 
