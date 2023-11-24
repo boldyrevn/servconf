@@ -11,7 +11,8 @@ func TestLoadYamlConfig(t *testing.T) {
         s, err := LoadYamlConfig("./test_configs/config.yaml")
         assert.NoError(t, err)
         assert.Equal(t, "localhost:8080", s.Addr)
-        assert.Equal(t, time.Millisecond*20, s.Timeout)
+        assert.Equal(t, time.Millisecond*20, s.ReadTimeout)
+        assert.Equal(t, time.Millisecond*30, s.WriteTimeout)
     })
     t.Run("invalid config path", func(t *testing.T) {
         _, err := LoadYamlConfig("./confi_1.yaml")

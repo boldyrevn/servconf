@@ -9,14 +9,16 @@ import (
 )
 
 type innerConfig struct {
-    Host    string `yaml:"host"`
-    Port    int    `yaml:"port"`
-    Timeout int    `yaml:"timeout"`
+    Host         string `yaml:"host"`
+    Port         int    `yaml:"port"`
+    ReadTimeout  int    `yaml:"readTimeout"`
+    WriteTimeout int    `yaml:"writeTimeout"`
 }
 
 type ServerConfig struct {
-    Addr    string
-    Timeout time.Duration
+    Addr         string
+    ReadTimeout  time.Duration
+    WriteTimeout time.Duration
 }
 
 // LoadYamlConfig makes server config from .yaml file. Timeout must be specified in milliseconds
@@ -35,7 +37,8 @@ func LoadYamlConfig(path string) (*ServerConfig, error) {
         return nil, err
     }
     return &ServerConfig{
-        Addr:    ic.Host + ":" + strconv.Itoa(ic.Port),
-        Timeout: time.Millisecond * time.Duration(ic.Timeout),
+        Addr:         ic.Host + ":" + strconv.Itoa(ic.Port),
+        ReadTimeout:  time.Millisecond * time.Duration(ic.ReadTimeout),
+        WriteTimeout: time.Millisecond * time.Duration(ic.WriteTimeout),
     }, nil
 }
