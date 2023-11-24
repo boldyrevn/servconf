@@ -1,4 +1,4 @@
-package hw_server_config
+package servconf
 
 import (
     "gopkg.in/yaml.v3"

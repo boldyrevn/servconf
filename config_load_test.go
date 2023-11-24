@@ -1,4 +1,4 @@
-package hw_server_config
+package servconf
 
 import (
     "github.com/stretchr/testify/assert"
